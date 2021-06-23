@@ -25,19 +25,19 @@ Forcing mysql to start whenever you boot server, To stop shift to disable
 
 ## 4. Installing httpd
   $ sudo yum install httpd
-Forcing apache(httpd) to start whenever you boot server, To stop shift to disable
+* Forcing apache(httpd) to start whenever you boot server, To stop shift to disable
   $ sudo systemctl enable httpd.service
-Start httpd service
+* Start httpd service
   $ sudo systemctl start httpd.service
-Open firewall for both http and https
+* Open firewall for both http and https
   $ sudo firewall-cmd --permanent --add-service=http
-and for https
+* and for https
   $ sudo firewall-cmd --permanent --add-service=https
-Reload firewall
+* Reload firewall
   $ sudo firewall-cmd --reload
 #### Setting Multi-Processing Modules (MPM)
   $ sudo httpd -V | grep i mpm
-Before you make the change in your httpd remember to have backup
+* Before you make the change in your httpd remember to have backup
   $ sudo cp /etc/httpd/conf/httpd.conf ~/httpd.conf.backup
   
 #### Enabling prefork
@@ -64,4 +64,11 @@ Restart the apache
 $ sudo systemctl restart httpd
 
 #### Configure your virtual hosting
+
+#### Install Laravel Using Composer
+$ composer create-project --prefer-dist laravel/laravel [project_name]
+
+#### Using Laravel for Local Development
+$ cd [project_name]
+$ php artisan serve --host=[IP] --port=[port]
 
